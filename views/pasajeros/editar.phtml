@@ -1,0 +1,67 @@
+<ol class="breadcrumb">
+  <li><a href="<?php echo BASE_URL; ?>">Inicio</a></li>
+  <li><a href="<?php echo BASE_URL; ?>pasajeros">Pasajeros</a></li>
+  <li class="active">Editar</li>
+</ol>
+
+<h2>Editar Pasajero</h2>
+<form name="form1" method="post" action="">
+    <input type="hidden" value="1" name="guardar" />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="">
+                <div class="form-group">
+                    <label>Cédula: </label>
+                    <input class="form-control" type="text" name="cedula" value="<?php if(isset($this->datos)) echo $this->datos['cedula']; ?>" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Nombres: </label>
+                    <input class="form-control" type="text" name="nombres" value="<?php if(isset($this->datos)) echo $this->datos['nombres']; ?>" required />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Apellidos: </label>
+                    <input class="form-control" type="text" name="apellidos" value="<?php if(isset($this->datos)) echo $this->datos['apellidos']; ?>" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Dirección: </label>
+                    <input class="form-control" type="text" name="direccion" value="<?php if(isset($this->datos)) echo $this->datos['direccion']; ?>" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Tel&eacute;fono: </label>
+                    <input class="form-control" type="text" name="telefono" value="<?php if(isset($this->datos)) echo $this->datos['telefono']; ?>" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="">
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Actualizar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br><br>

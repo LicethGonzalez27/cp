@@ -1,0 +1,89 @@
+﻿html, body{
+	width: 100%;
+	height: 100%;
+}
+
+body {
+  background-color: #2c3e50;
+  margin: 0;
+  padding: 0;
+}
+
+#fondo{
+  background-image: url('../img/donut.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+
+.patron {
+  /*data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGUlEQVQYV2NkYGCoB+IGGGYEMv6jC+BXAQAiYwkB4h6MoAAAAABJRU5ErkJggg==*/
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAF0lEQVQIW2NkYGD4D8SMQAwhYACZ8x8AJHACA7pdvnsAAAAASUVORK5CYII=);
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.navbar{
+  border-radius: 0;
+}
+
+#nav-menu{
+
+}
+
+.jumbotron{
+  background-image: url('../img/donut.jpg');
+  background-position: -200px -300px;
+}
+
+.subtitulos {
+    
+    text-align: center;
+    width: 240px;
+    margin-top: 15px;
+    
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 10px;
+    text-align: justify;
+    font-size: 60px;
+    font-family: varela-round, serif;
+    padding: 10px;
+
+}
+
+.fondo-texto-login{
+	background-color: #000;
+    opacity: .7;
+    width: 356px;
+    height: 300px;
+    z-index: -100;
+    position: absolute;
+    left: -25px;
+}
+
+#contenido{
+	background-color: rgba(255,255,255, 1);
+	min-height: 540px;
+	z-index: -100
+}
+
+.contenido{
+  background-color: rgba(255,255,255, 1);
+}
+
+.blanco{
+  min-height: 540px;
+  background-color:  rgba(0,0,0, .3);
+  position: static;
+  z-index: 100;
+}
+

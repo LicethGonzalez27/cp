@@ -1,0 +1,117 @@
+<style>
+    #fondo{ background-image: url('<?php echo $_layoutParams['ruta_img']; ?>donut.jpg'); }
+</style>
+<div id="fondo">
+    <div class="patron">
+        <!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1 ">
+
+                    <div id="login-alt-container" >
+                        <div class="fondo-texto-login"></div>
+                        <!-- Title -->
+                        <h1 class="push-top-bottom">
+                            <i class="fa fa-skyatlas"></i> <strong>SITE - APP</strong><br><br>
+                            <small>Bienvenido!</small>
+                        </h1>
+                        <!-- END Title -->
+
+                        <!-- Key Features -->
+                        <ul class="fa-ul text-muted">
+                            <li>&nbsp; </li>
+                            <li>&nbsp; </li>
+                            <li>&nbsp; </li>
+                        </ul>
+                        <!-- END Key Features -->
+
+                        <!-- Footer -->
+                        <footer class="text-muted push-top-bottom">
+                            <small><span id="year-copy">2016</span> &copy; <a href="#" target="_blank">Atinarte Company</a></small>
+                        </footer>
+                        <!-- END Footer -->
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Login Container -->
+                    <div id="login-container">
+                        <!-- Login Title -->
+                        <div class="login-title text-center">
+                            <h1><strong>Iniciar sesi&oacute;n</strong></h1>
+                        </div>
+                        <!-- END Login Title -->
+
+                        <!-- Login Block -->
+                        <div class="block push-bit">
+                            <!-- Login Form -->
+                            <form action="" method="post" id="form-login" class="form-horizontal">
+                                <input type="hidden" value="1" name="enviar" />
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            <input type="text" id="login-user" name="login-user" class="form-control input-lg" placeholder="Usuario" value="<?php if(isset($this->datos)) echo $this->datos['login-user']; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="password" name="login-password" class="form-control input-lg" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-actions">
+                                    <div class="col-xs-4">
+                                        <label class="switch switch-primary" data-toggle="tooltip" title="Recordarme?">
+                                            <input type="checkbox" id="login-remember-me" name="login-remember-me" checked>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Ingresar</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                     <!--   <a href="javascript:void(0)" id="link-reminder-login"><small>¿Olvido su contraseña?</small></a> -
+                                        <a href="javascript:void(0)" id="link-register-login"><small>Crear una nueva cuenta</small></a>-->
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Login Form -->
+
+                            <!-- Reminder Form -->
+                            <form action="login_alt.html#reminder" method="post" id="form-reminder" class="form-horizontal display-none">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            <input type="text" id="reminder-email" name="reminder-email" class="form-control input-lg" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-actions">
+                                    <div class="col-xs-12 text-right">
+                                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Restablecer Contraseña</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <!--<small>Si recordo su contraseña?</small> <a href="javascript:void(0)" id="link-reminder"><small>Login</small></a>-->
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Reminder Form -->
+
+                        </div>
+                        <!-- END Login Block -->
+                    </div>
+                    <!-- END Login Container -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

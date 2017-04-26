@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-10">      
+        <div class="block">
+            <form name="form1" method="post" action="">
+                <input type="hidden" name="guardar" value="1" />
+                <!-- Permisos Title -->
+                <div class="block-title">
+                    <div class="block-options pull-right">
+                        <button type="submit" class="btn btn-xs btn-primary"><i class="icon-ok icon-white"> </i> Guardar</button>
+                    </div>
+                    <h2><i class="fa fa-lock"></i> <strong>Permisos</strong> de <?php echo $this->rol['rol']; ?></h2>
+                </div>
+                <!-- END Permisos Title -->
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-vcenter">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="text-center">Modulo - Permiso</th>
+                                <th class="text-center"><small>Agregar</small><br><input type="checkbox" id="check_agregar" value="1"></th>
+                                <th class="text-center"><small>Consultar</small><br><input type="checkbox" id="check_consultar" value="1" ></th>
+                                <th class="text-center"><small>Modificar</small><br><input type="checkbox" id="check_modificar" value="1" ></th>
+                                <th class="text-center"><small>Eliminar</small><br><input type="checkbox" id="check_eliminar" value="1" ></th>
+                                <th class="text-center"><small>Imprimir</small><br><input type="checkbox" id="check_imprimir" value="1" ></th>
+                                <th class="text-center"><small>Exportar</small><br><input type="checkbox" id="check_exportar" value="1" ></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($this->permisos as $pr): ?>
+                                <tr>
+                                    <td><input type="checkbox" id="<?php echo 'perm_'.$pr['id_permisos']; ?>" value="<?php echo $pr['id_permisos']; ?>" data-permiso ></td>
+                                    <td class="text-left"><?php echo $pr['modulo'].' - '.$pr['permiso']; ?></td>
+                                    <td class="text-center"><input type="checkbox" name="<?php echo $pr['id_permisos'].'ag'; ?>" value="1" data-agregar <?php if ($pr['agregar'] == '1') {echo 'checked';} ?> ></td>
+                                    <td class="text-center"><input type="checkbox" name="<?php echo $pr['id_permisos'].'co'; ?>" value="1" data-consultar <?php if ($pr['consultar'] == '1') {echo 'checked';} ?> ></td>
+                                    <td class="text-center"><input type="checkbox" name="<?php echo $pr['id_permisos'].'mo'; ?>" value="1" data-modificar <?php if ($pr['modificar'] == '1') {echo 'checked';} ?> ></td>
+                                    <td class="text-center"><input type="checkbox" name="<?php echo $pr['id_permisos'].'el'; ?>" value="1" data-eliminar <?php if ($pr['eliminar'] == '1') {echo 'checked';} ?> ></td>
+                                    <td class="text-center"><input type="checkbox" name="<?php echo $pr['id_permisos'].'im'; ?>" value="1" data-imprimir <?php if ($pr['imprimir'] == '1') {echo 'checked';} ?> ></td>
+                                    <td class="text-center"><input type="checkbox" name="<?php echo $pr['id_permisos'].'ex'; ?>" value="1" data-exportar <?php if ($pr['exportar'] == '1') {echo 'checked';} ?> ></td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

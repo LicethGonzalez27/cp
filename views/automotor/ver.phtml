@@ -1,0 +1,222 @@
+<ol class="breadcrumb breadcrumb-top">
+  <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i></a></li>
+  <li><a href="<?php echo BASE_URL; ?>automotor">Parque Automotor</a></li>
+  <li class="active">Ver</li>
+</ol>
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong>Información general</strong>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li class="list-unstyled">
+						<strong>Número:&nbsp; </strong> <?php echo $this->automotor['numero']; ?></li>
+					<li class="list-unstyled">
+						<strong>Placa:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php echo $this->automotor['placa']; ?></li>
+					<li class="list-unstyled">
+						<strong>Marca:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php echo $this->automotor['marca']; ?></li>
+					<li class="list-unstyled">
+						<strong>Clase:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php echo $this->automotor['clase']; ?></li>
+					<li class="list-unstyled">
+						<strong>Modelo:&nbsp;&nbsp;&nbsp;</strong> <?php echo $this->automotor['modelo']; ?></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<div class="block">
+			<div class="block-title">
+				<div class="block-options pull-right">
+		            <a href="#modal-nuevo" class="btn btn-sm btn-primary" data-toggle="modal" title="Agregar"><i class="fa fa-plus"></i></a>
+		        </div>
+		        <h2 class=""><i class="gi gi-credit_card"></i> <strong> Tarjetas de Operación </strong></h2>
+			</div>
+			<div class="table-responsive">
+			    <table class="table table-bordered center">
+			    	<thead>	
+			    			<th>No.</th>
+			    	        <th>TARJETA</th>
+			    	        <th>CAPACIDAD</th>
+			    	        <th>FEC. EXPEDICI&Oacute;N</th>
+			    	        <th>FEC. VENCIMIENTO</th>
+			                <th></th>
+			    	</thead>
+
+			    	<?php for($i = 0; $i < count($this->tarjeta); $i++): ?>
+			    	<?php $diferencia = date_diff(date_create(date("Y-m-d")), date_create($this->tarjeta[$i]['fec_vencimiento']))->format('%R%a'); ?>
+			        <?php if ($this->tarjeta[$i]['estado'] == 0): ?>
+			        	<tr class="active">
+			        <?php elseif (($diferencia <= 30) and ($this->tarjeta[$i]['estado'] == 1)): ?>
+			        	<tr class="danger">
+			        <?php else: ?>
+						 <tr class="success">
+			        <?php endif ?>
+			       
+			        	<td><?php echo ($i+1); ?></td>
+			            <td><?php echo $this->tarjeta[$i]['tarjeta']; ?></td>
+			            <td><?php echo $this->tarjeta[$i]['capacidad']; ?></td>
+			            <td><?php echo $this->tarjeta[$i]['fec_expedicion']; ?></td>
+			            <td><?php echo $this->tarjeta[$i]['fec_vencimiento']; ?></td>
+			            <td class="text-center">
+		                    <div class="btn-group btn-group-xs">
+		                        <a href="<?php echo BASE_URL.'seguros/editar/'.$this->tarjeta[$i]['id']; ?>" class="btn btn-default" data-toggle="tooltip" title="Editar"><i class="gi gi-pencil"></i></a>
+		                    </div>
+		                </td>
+			        </tr>
+			        
+			        <?php endfor;?>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row ">
+	<div class="col-md-12">
+		<div class="block">
+			<div class="block-title">
+				<div class="block-options pull-right">
+		            <a href="#modal-nuevo" class="btn btn-sm btn-primary" data-toggle="modal" title="Agregar"><i class="fa fa-plus"></i></a>
+		        </div>
+		        <h2 class=""><i class="gi gi-hospital"></i> <strong> SOAT </strong></h2>
+			</div>
+			<div class="table-responsive">
+			    <table class="table table-bordered center">
+			    	<thead>	
+			    			<th>No.</th>
+			    	        <th>POLIZA</th>
+			    	        <th>FEC. EXPEDICI&Oacute;N</th>
+			    	        <th>FEC. VENCIMIENTO</th>
+			    	        <th>ASEGURADORA</th>
+			                <th></th>
+			    	</thead>
+
+			    	<?php for($i = 0; $i < count($this->soat); $i++): ?>
+			    	<?php $diferencia = date_diff(date_create(date("Y-m-d")), date_create($this->soat[$i]['fec_vencimiento']))->format('%R%a'); ?>
+			        <?php if ($this->soat[$i]['estado'] == 0): ?>
+			        	<tr class="active">
+			        <?php elseif (($diferencia <= 30) and ($this->soat[$i]['estado'] == 1)): ?>
+			        	<tr class="danger">
+			        <?php else: ?>
+						 <tr class="success">
+			        <?php endif ?>
+			       
+			        	<td><?php echo ($i+1); ?></td>
+			            <td><?php echo $this->soat[$i]['poliza']; ?></td>
+			            <td><?php echo $this->soat[$i]['fec_expedicion']; ?></td>
+			            <td><?php echo $this->soat[$i]['fec_vencimiento']; ?></td>
+			            <td><?php echo $this->soat[$i]['aseguradora']; ?></td>
+			            <td class="text-center">
+		                    <div class="btn-group btn-group-xs">
+		                        <a href="<?php echo BASE_URL.'seguros/editar/'.$this->soat[$i]['id']; ?>" class="btn btn-default" data-toggle="tooltip" title="Editar"><i class="gi gi-pencil"></i></a>
+		                    </div>
+		                </td>
+			        </tr>
+			        
+			        <?php endfor;?>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="block">
+		    <div class="block-title">
+		        <div class="block-options pull-right">
+		            <a href="#modal-nuevo" class="btn btn-sm btn-primary" data-toggle="modal" title="Agregar"><i class="fa fa-plus"></i></a>
+		        </div>
+		        <h2 class=""><i class="hi hi-wrench"></i> <strong>Certificados</strong></h2>
+		    </div>
+
+		    <table class="table table-bordered center">
+		    	<thead>	
+					<th>No.</th>
+					<th>REVISIÓN</th>
+			        <th>FEC. DE EXPEDICIÓN</th>
+			        <th>FEC. VENCIMIENTO</th>
+		            <th></th>
+		    	</thead>
+
+		    	<?php for($i = 0; $i < count($this->tecnomecanicas); $i++): ?>
+		        	<?php $diferencia = date_diff(date_create(date("Y-m-d")), date_create($this->tecnomecanicas[$i]['fec_vencimiento']))->format('%R%a'); ?>
+		            <?php if ($this->tecnomecanicas[$i]['estado'] == 0): ?>
+		            	<tr class="active">
+		            <?php elseif (($diferencia <= 30) and ($this->tecnomecanicas[$i]['estado'] == 1)): ?>
+		            	<tr class="danger">
+		            <?php else: ?>
+		    			 <tr class="success">
+		            <?php endif ?>
+		       
+		            	<td><?php echo ($i+1); ?></td>
+		                <td><?php echo $this->tecnomecanicas[$i]['consecutivo']; ?></td>
+		                <td><?php echo $this->tecnomecanicas[$i]['fec_expedicion']; ?></td>
+		                <td><?php echo $this->tecnomecanicas[$i]['fec_vencimiento']; ?></td>
+		                <td class="text-center">
+		                    <div class="btn-group btn-group-xs">
+		                        <a href="<?php echo BASE_URL.'tecnomecanica/editar/'.$this->tecnomecanicas[$i]['id']; ?>" class="btn btn-default" data-toggle="tooltip" title="Editar"><i class="gi gi-pencil"></i></a>
+		                    </div>
+		                </td>
+		            </tr>
+		        
+		        <?php endfor;?>
+		    </table>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<!--  Modal nueva tecnomecanica-->
+<div id="modal-nuevo" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form action="" method="post" class="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Agregar Revisión Tecnomecánica</h3>
+                </div>
+
+
+                <div class="modal-body form-horizontal form-bordered">
+                    <div class="form-group ">
+                        <label class="col-md-3 control-label" for="numero0">Vehículo:</label>
+                        <div class="col-md-8">
+                            <select name="automotor" class="select-chosen" data-placeholder="Seleccione.." style="width: 250px;">
+                                <option value="<?php echo $this->automotor['id']; ?>" selected><?php echo $this->automotor['numero']." - ".$this->automotor['placa']; ?></option>
+                            </select>
+                        </div>
+                
+                        <label class="col-md-3 control-label" for="placa0">No.Revisión:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" title="Se necesita el numero de revision" type="text" name="consecutivo" value="<?php if(isset($this->datos)) echo $this->datos['tecno']; ?>" maxlength="20" required />
+                        </div>
+
+                        <label class="col-md-3 control-label" for="fec_expedicion">Vigencia</label>
+                        <div class="col-md-8">
+                            <div class="input-group input-daterange" data-date-format="yyyy/mm/dd">
+                                <input type="text" id="fec_expedicion" name="fec_expedicion" class="form-control text-center" placeholder="Expedición">
+                                <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+                                <input type="text" id="fec_vencimiento" name="fec_vencimiento" class="form-control text-center" placeholder="Vencimiento">
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                      
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="btn_nuevo_tecnomecanica" class="btn btn-sm btn-primary" data-dismiss="modal">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Fin Modal nueva tecnomecanica -->

@@ -1,0 +1,129 @@
+<ol class="breadcrumb breadcrumb-top">
+  <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i></a></li>
+  <li class="active">Parque Automotor</li>
+</ol>
+
+<div class="block">
+	<div class="block-title">
+		<div class="block-options pull-right">
+			<a href="#modal-nuevo" class="btn btn-sm btn-primary" data-toggle="modal" data-toggle="tooltip" title="Agregar Vehículo"><i class="fa fa-plus"></i></a>
+        </div>
+        <h2 class=""><i class="fa fa-car"></i> <strong>Veh&iacute;culos</strong></h2>
+		<!--<a href="#modal-nuevo" class="btn btn-primary btn-xs" data-toggle="modal" title="Agregar">Agregar Vehiculo</a>-->
+	</div>
+	<div class="table-responsive">
+	    <table class="table table-bordered">
+			<thead>
+			        <th class="text-center">No.</th>
+			        <th>PLACA</th>
+			        <th>MARCA</th>
+			        <th>CLASE</th>
+			        <th class="text-center">MODELO</th>
+			        <th></th>
+			</thead>
+			<?php for($i = 0; $i < count($this->automotores); $i++): ?>
+		    
+		    <tr>
+		        <td class="text-center"><?php echo $this->automotores[$i]['numero']; ?></td>
+		        <td><?php echo $this->automotores[$i]['placa']; ?></td>
+		        <td><?php echo $this->automotores[$i]['marca']; ?></td>
+		        <td><?php echo $this->automotores[$i]['clase']; ?></td>
+		        <td class="text-center"><?php echo $this->automotores[$i]['modelo']; ?></td>
+		        <td class="text-center">
+		        	<div class="btn-group btn-group-xs">
+                        <a href="<?php echo BASE_URL.'automotor/ver/'.$this->automotores[$i]['id']; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo BASE_URL.'automotor/editar/'.$this->automotores[$i]['id']; ?>" class="btn btn-warning" data-toggle="tooltip" title="Editar"><i class="fa fa-pencil"></i></a>
+                    </div>
+				</td>
+		    </tr>
+		    
+		    <?php endfor;?>
+		</table>
+	</div>
+</div>
+
+<!-- Modal Agregar -->
+<div id="modal-nuevo" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form action="" method="post" class="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Agregar Vehiculo</h3>
+                </div>
+
+
+            <div class="modal-body form-horizontal form-bordered">
+                <div class="form-group ">
+                    <label class="col-md-3 control-label" for="numero0">N&uacute;mero:</label>
+                        <div class="col-md-9">
+                            <input class="form-control" placeholder= "0" title="Se necesita un numero" type="text" name="numero" value="<?php if(isset($this->datos)) echo $this->datos['numero']; ?>" required />
+                        </div>
+          		
+          			<label class="col-md-3 control-label" for="placa0">Placa:</label>
+          				<div class="col-md-9">
+          				<input class="form-control" title="Se necesita la placa" type="text" name="placa" value="<?php if(isset($this->datos)) echo $this->datos['placa']; ?>" maxlength="7" required />
+       		 			</div>
+
+       		 		<label class="col-md-3 control-label" for="marca0">Marca: </label>
+       		 			<div class="col-md-9">
+				            <select class="form-control" name="marca" required>
+				              <option value="0" disabled selected>Seleccione...</option>
+				              <option value="Audi">Audi </option>
+				              <option value="Bmw">Bmw </option>
+				              <option value="Chevrolet">Chevrolet </option>
+				              <option value="Citroen">Citroen </option>
+				              <option value="Daihatsu">Daihatsu </option>
+				              <option value="Dodge">Dodge </option>
+				              <option value="Fiat">Fiat </option>
+				              <option value="Ford">Ford </option>
+				              <option value="Honda">Honda </option>
+				              <option value="Hyundai">Hyundai </option>
+				              <option value="Jeep">Jeep </option>
+				              <option value="Kia">Kia </option>
+				              <option value="Mazda">Mazda </option>
+				              <option value="Mercedes-Benz">Mercedes-Benz </option>
+				              <option value="Mitsubishi">Mitsubishi </option>
+				              <option value="Nissan">Nissan </option>
+				              <option value="Peugeot">Peugeot </option>
+				              <option value="Renault">Renault </option>
+				              <option value="Seat">Seat </option>
+				              <option value="Skoda">Skoda </option>
+				              <option value="SsangYong">SsangYong </option>
+				              <option value="Subaru">Subaru </option>
+				              <option value="Toyota">Toyota </option>
+				              <option value="Volkswagen">Volkswagen </option>
+				              <option value="Otro">Otro </option>
+				            </select>
+			            </div>
+
+					<div class="row">
+					<div class="form-group ">
+					    <div class="col-md-11"><br>
+					        <div class="radio">
+						    <label><input type="radio" name="clase" value="Camioneta" required> Camioneta</label>
+						    <label><input type="radio" name="clase" value="Automovil" required> Automovil</label>
+						    <label><input type="radio" name="clase" value="Campero" required> Campero </label>
+						    </div>
+					    </div>
+					    </div>
+					</div>
+			      
+      
+			        <label class="col-md-3 control-label" for="modelo0">Modelo: </label>
+			        	<div class="col-md-9">
+			            <input class="form-control" type="number" name="modelo" maxlength="4" required />
+			        </div>
+
+     			</div>
+   			</div>
+                      
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btn_nuevo_vehiculo" type="submit" class="btn btn-sm btn-primary" >Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END Modal Agregar-->

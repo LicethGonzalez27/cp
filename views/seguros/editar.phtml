@@ -1,0 +1,98 @@
+<ol class="breadcrumb">
+  <li><a href="<?php echo BASE_URL ?>">Inicio</a></li>
+  <li><a href="<?php echo BASE_URL ?>seguros">Seguros</a></li>
+  <li class="active">SOAT</li>
+</ol>
+
+<h2>EDITAR SOAT</h2>
+
+<form name="form1" method="post" action="">
+    <input type="hidden" value="1" name="guardar" />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="">
+                <div class="form-group">
+                    <label>Vehiculo No.: </label>
+                    <select class="form-control" name="automotor">
+                    	<?php if (isset($this->datos)): ?>
+                    		<?php for($i = 0; $i < count($this->automotores); $i++): ?>
+                    			<?php if ($this->datos['automotor'] == $i): ?>
+                    				<option value="<?php echo $this->automotores[$i]['id']; ?>" selected><?php echo $this->automotores[$i]['numero']." - ".$this->automotores[$i]['placa']; ?></option>
+                    			<?php else: ?>
+	                            	<option value="<?php echo $this->automotores[$i]['id']; ?>"><?php echo $this->automotores[$i]['numero']." - ".$this->automotores[$i]['placa']; ?></option>
+                                <?php endif ?>
+	                        <?php endfor; ?>
+	                    <?php else: ?>
+	                    	<option value="0" disabled selected>Seleccione...</option>
+	                        <?php for($i = 0; $i < count($this->automotores); $i++): ?>
+	                            <option value="<?php echo $this->automotores[$i]['id']; ?>"><?php echo $this->automotores[$i]['numero']." - ".$this->automotores[$i]['placa']; ?></option>
+	                        <?php endfor; ?>
+                    	<?php endif ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Aseguradora: </label>
+                    <select class="form-control" name="aseguradora">
+                    	<?php if (isset($this->datos)): ?>
+                    		<?php for($i = 0; $i < count($this->aseguradoras); $i++): ?>
+                    			<?php if ($this->datos['aseguradora'] == $this->aseguradoras[$i]['nombre']): ?>
+                    				<option value="<?php echo $this->aseguradoras[$i]['id']; ?>" selected><?php echo $this->aseguradoras[$i]['nombre']; ?></option>
+                                <?php else: ?>
+	                            	<option value="<?php echo $this->aseguradoras[$i]['id']; ?>"><?php echo $this->aseguradoras[$i]['nombre']; ?></option>
+                                <?php endif ?>
+	                        <?php endfor; ?>
+	                    <?php else: ?>
+	                    	<option value="0" disabled selected>Seleccione...</option>
+	                        <?php for($i = 0; $i < count($this->aseguradoras); $i++): ?>
+	                            <option value="<?php echo $this->aseguradoras[$i]['id']; ?>"><?php echo $this->aseguradoras[$i]['nombre']; ?></option>
+	                        <?php endfor; ?>
+                    	<?php endif ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>No. Poliza: </label>
+                    <input class="form-control" type="text" name="poliza" value="<?php if(isset($this->datos)) echo $this->datos['poliza']; ?>" placeholder="Número de poliza" required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Fecha expedici&oacute;n: </label>
+                    <input type="date" class="form-control" name="fec_expedicion" value="<?php if(isset($this->datos)) echo $this->datos['fec_expedicion']; ?>" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Fecha Vencimiento: </label>
+                    <input type="date" class="form-control" name="fec_vencimiento" value="<?php if(isset($this->datos)) echo $this->datos['fec_vencimiento']; ?>" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="">
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Guardar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br><br>

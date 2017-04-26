@@ -1,0 +1,310 @@
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <!-- Advanced Specific Theme Color Widget -->
+        <div class="widget">
+            <div class="widget-advanced">
+                <!-- Widget Header -->
+                <div class="widget-header text-center themed-background-dark-flatie">
+                    <h3 class="widget-content-light">
+                        <a href="<?php echo BASE_URL; ?>automotor" class="themed-color-flatie">Parque automotor</a><br>
+                        <small>Todo sobre los vehículos</small>
+                    </h3>
+                </div>
+                <!-- END Widget Header -->
+
+                <!-- Widget Main -->
+                <div class="widget-main">
+                    <a href="<?php echo BASE_URL; ?>automotor" class="widget-image-container animation-bigEntrance">
+                        <span class="widget-icon themed-background-flatie"><i class="gi gi-cars"></i></span>
+                    </a>
+                    <table class="table table-borderless table-striped table-condensed table-vcenter">
+                        <tbody>
+                            <tr>
+                                <td style="width: 10px;"><i class="gi gi-car"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>automotor"><strong>Vehículos</strong></a></td>
+                                <td class="text-right">14 reg.</td>
+                                <td class="text-center" style="width: 70px;">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>automotor/nuevo" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-credit_card"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>tarjeta_operacion"><strong>T. de Operación</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>tarjeta_operacion" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>tarjeta_operacion/nuevo" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-hospital"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>seguros"><strong>Seguros</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>seguros" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>seguros/soat" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="hi hi-wrench"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Revisiones</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-flag"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Novedades</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END Widget Main -->
+            </div>
+        </div>
+        <!-- END Advanced Specific Theme Color Widget -->
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <!-- Advanced Specific Theme Color Widget -->
+        <div class="widget">
+            <div class="widget-advanced">
+                <!-- Widget Header -->
+                <div class="widget-header text-center themed-background-dark-spring">
+                    <h3 class="widget-content-light">
+                        <a href="<?php echo BASE_URL; ?>planilla" class="themed-color-spring">Operación</a><br>
+                        <small>Puesta en marcha</small>
+                    </h3>
+                </div>
+                <!-- END Widget Header -->
+
+                <!-- Widget Main -->
+                <div class="widget-main">
+                    <a href="<?php echo BASE_URL; ?>planilla" class="widget-image-container animation-bigEntrance">
+                        <span class="widget-icon themed-background-spring"><i class="gi gi-road"></i></span>
+                    </a>
+                    <table class="table table-borderless table-striped table-condensed table-vcenter">
+                        <tbody>
+                            <tr>
+                                <td style="width: 10px;"><i class="gi gi-notes_2"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>planilla"><strong>Planillas</strong></a></td>
+                                <td class="text-right"><?php echo $this->registros['planillas']; ?> reg.</td>
+                                <td class="text-center" style="width: 70px;">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>planilla/nuevo" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-old_man"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>pasajeros"><strong>Pasajeros</strong></a></td>
+                                <td class="text-right"><?php echo $this->registros['pasajeros']; ?> reg.</td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>pasajeros" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>pasajeros/nuevo" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-road"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>recorridos"><strong>Recorridos</strong></a></td>
+                                <td class="text-right"><?php echo $this->registros['recorridos']; ?> reg.</td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>recorridos" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>recorridos/nuevo" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-file"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Reportes</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END Widget Main -->
+            </div>
+        </div>
+        <!-- END Advanced Specific Theme Color Widget -->
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <!-- Advanced Specific Theme Color Widget -->
+        <div class="widget">
+            <div class="widget-advanced">
+                <!-- Widget Header -->
+                <div class="widget-header text-center themed-background-dark-amethyst">
+                    <h3 class="widget-content-light">
+                        <a href="<?php echo BASE_URL; ?>" class="themed-color-amethyst">Empresa</a><br>
+                        <small>Estadísticas y más</small>
+                    </h3>
+                </div>
+                <!-- END Widget Header -->
+
+                <!-- Widget Main -->
+                <div class="widget-main">
+                    <a href="<?php echo BASE_URL; ?>" class="widget-image-container animation-bigEntrance">
+                        <span class="widget-icon themed-background-amethyst"><i class="gi gi-building"></i></span>
+                    </a>
+                    <table class="table table-borderless table-striped table-condensed table-vcenter">
+                        <tbody>
+                            <tr>
+                                <td style="width: 10px;"><i class="gi gi-nameplate"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Conductores</strong></a></td>
+                                <td class="text-right">20 reg.</td>
+                                <td class="text-center" style="width: 70px;">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-parents"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Empleados</strong></a></td>
+                                <td class="text-right">3 reg.</td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-money"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Contabilidad</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-stats"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Estadisticas</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END Widget Main -->
+            </div>
+        </div>
+        <!-- END Advanced Specific Theme Color Widget -->
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <!-- Advanced Specific Theme Color Widget -->
+        <div class="widget">
+            <div class="widget-advanced">
+                <!-- Widget Header -->
+                <div class="widget-header text-center themed-background-dark-night">
+                    <h3 class="widget-content-light">
+                        <a href="<?php echo BASE_URL; ?>" class="themed-color-night">Ajustes</a><br>
+                        <small>Parametrización</small>
+                    </h3>
+                </div>
+                <!-- END Widget Header -->
+
+                <!-- Widget Main -->
+                <div class="widget-main">
+                    <a href="<?php echo BASE_URL; ?>" class="widget-image-container animation-bigEntrance">
+                        <span class="widget-icon themed-background-night"><i class="gi gi-cogwheels"></i></span>
+                    </a>
+                    <table class="table table-borderless table-striped table-condensed table-vcenter">
+                        <tbody>
+                            <tr>
+                                <td style="width: 10px;"><i class="gi gi-user"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Usuarios</strong></a></td>
+                                <td class="text-right">.</td>
+                                <td class="text-center" style="width: 70px;">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-group"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Roles</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-lock"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>acl"><strong>Permisos</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>acl" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>acl" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-cogwheel"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Parametrización</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="gi gi-check"></i></td>
+                                <td><a href="<?php echo BASE_URL; ?>"><strong>Licencia</strong></a></td>
+                                <td class="text-right"></td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo BASE_URL; ?>" class="btn btn-default" data-toggle="tooltip" title="Agregar"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END Widget Main -->
+            </div>
+        </div>
+        <!-- END Advanced Specific Theme Color Widget -->
+    </div>
+</div>

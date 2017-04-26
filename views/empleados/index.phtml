@@ -1,0 +1,61 @@
+<ol class="breadcrumb breadcrumb-top">
+  <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i></a></li>
+  <li class="active">Empleados</li>
+</ol>
+
+<a class="btn btn-primary btn-xs" href="<?php  echo BASE_URL;?>empleados/nuevo">Agregar Empleado</a>
+<br><br>
+
+<div class="panel panel-default table-responsive">
+	<div class="panel-heading"><strong>Usuarios </strong></div>
+	<div class="table-responsive">
+	    <table class="table table-bordered center">
+			<!--<thead>
+			        <th>DOCUMENTO</th>
+			        <th>APELLIDOS</th>
+			        <th>NOMBRES</th>
+			        <th>FECHA NACIMIENTO</th>
+			        <th>DIRECCION</th>
+			        <th>TEL&Eacute;FONO</th>
+			</thead>-->
+			<?php for($i = 0; $i < count($this->usuarios); $i++): ?>
+		    
+		    <tr>
+		        <td><?php echo $this->usuarios[$i]['cedula']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['apellidos']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['nombres']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['fec_nacimiento']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['direccion']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['telefono']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['usuario']; ?></td>
+		        <td><?php echo $this->usuarios[$i]['rol']; ?></td>
+		    </tr>
+		    
+		    <?php endfor;?>
+		</table>
+	</div>
+</div>
+
+<div class="panel panel-default table-responsive">
+	<div class="panel-heading"><strong>Conductores </strong></div>
+	<div class="table-responsive">
+	    <table class="table table-bordered center">
+			
+			<?php for($i = 0; $i < count($this->conductores); $i++): ?>
+		    
+		    <tr>
+		        <td><?php echo $this->conductores[$i]['cedula']; ?></td>
+		        <td><?php echo $this->conductores[$i]['apellidos']; ?></td>
+		        <td><?php echo $this->conductores[$i]['nombres']; ?></td>
+		        <td><?php echo $this->conductores[$i]['fec_nacimiento']; ?></td>
+		        <td><?php echo $this->conductores[$i]['direccion']; ?></td>
+		        <td><?php echo $this->conductores[$i]['telefono']; ?></td>
+		        <td><?php echo $this->conductores[$i]['fec_vencimiento']; ?></td>
+		        <td><?php if($this->conductores[$i]['estado']=='1'){ echo 'Activo';}else{ echo 'Inactivo';} ?></td>
+		        <td><a href="" alt="Actualizar licencia">+</a></td>
+		    </tr>
+		    
+		    <?php endfor;?>
+		</table>
+	</div>
+</div>

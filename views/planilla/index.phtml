@@ -1,0 +1,45 @@
+<ol class="breadcrumb">
+  <li><a href="<?php echo BASE_URL; ?>">Inicio</a></li>
+  <li class="active">Planillas</li>
+</ol>
+
+<h2>PLANILLAS</h2>
+
+<div class="panel panel-default ">
+    <div class="panel-heading">Planillas registradas &nbsp; &nbsp; &nbsp; 
+        <a class="btn btn-primary btn-xs" href="<?php  echo BASE_URL;?>planilla/nuevo">Agregar</a> 
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered center">
+        	<thead>	
+        			<th></th>
+        	        <th>Contrato</th>
+        	        <th>F. Inicial</th>
+                    <th>F. Final</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Automotor</th>
+                    <th>Conductor</th>
+                    <th></th>
+        	</thead>
+
+        	<?php for($i = 0; $i < count($this->planillas); $i++): ?>
+            
+            <tr>
+            	<td><?php echo ($i+1); ?></td>
+                <td class="text-right"><?php echo '000'.$this->planillas[$i]['contrato']; ?></td>
+                <td><?php echo $this->planillas[$i]['fec_inicial']; ?></td>
+                <td><?php echo $this->planillas[$i]['fec_final']; ?></td>
+                <td><?php echo $this->planillas[$i]['origen']; ?></td>
+                <td><?php echo $this->planillas[$i]['destino']; ?></td>
+                <td><?php echo $this->planillas[$i]['numero'].' - '.$this->planillas[$i]['placa']; ?></td>
+                <td><?php echo $this->planillas[$i]['nombres'].' '.$this->planillas[$i]['apellidos']; ?></td>
+                <td><a class="btn btn-primary btn-xs" href="<?php echo BASE_URL.'planilla/ver/'.$this->planillas[$i]['id_planilla']; ?>"> Ver </a>
+                    <a class="btn btn-success btn-xs" href="<?php echo BASE_URL.'pdf/fuec/'.$this->planillas[$i]['id_planilla']; ?>"> FUEC </a>
+                    <a class="btn btn-info btn-xs" href="<?php echo BASE_URL.'pdf/contrato/'.$this->planillas[$i]['id_planilla']; ?>"> Contrato </a></td>
+            </tr>
+            
+            <?php endfor;?>
+        </table>
+    </div>
+</div>

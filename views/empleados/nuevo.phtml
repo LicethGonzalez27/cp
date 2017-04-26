@@ -1,0 +1,165 @@
+<ol class="breadcrumb breadcrumb-top">
+  <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i></a></li>
+  <li><a href="<?php echo BASE_URL; ?>empleados">Empleados</a></li>
+  <li class="active">Nuevo</li>
+</ol>
+
+
+<form name="form1" method="post" action="">
+    <input type="hidden" value="1" name="guardar" />
+    
+	<div class="row">
+        <div class="col-md-4">
+            <div class="">
+			    <div class="form-group">
+			        <label>Documento: </label>
+			        <input class="form-control" type="text" name="documento" value="<?php if(isset($this->datos)) echo $this->datos['documento']; ?>" required />
+			    </div>
+			</div>
+		</div>	 
+
+		<div class="col-md-4">
+            <div class="">	    
+			    <div class="form-group">
+			        <label>Nombres: </label>
+			        <input class="form-control" type="text" name="nombres" value="<?php if(isset($this->datos)) echo $this->datos['nombres']; ?>" required />
+			    </div>
+			</div>
+		</div>	 
+
+		<div class="col-md-4">
+            <div class="">
+			    <div class="form-group">
+			        <label>Apellidos: </label>
+			        <input class="form-control" type="text" name="apellidos" value="<?php if(isset($this->datos)) echo $this->datos['apellidos']; ?>" required />
+			    </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">	
+		<div class="col-md-4">
+            <div class="">
+			    <div class="form-group">
+			        <label>Fecha de nacimiento: </label>
+			        <input class="form-control" type="date" name="fec_nacimiento" value="<?php if(isset($this->datos)) echo $this->datos['fec_nacimiento']; ?>" required />
+			    </div>
+			</div>
+		</div>	 
+
+		<div class="col-md-4">
+            <div class="">
+			    <div class="form-group">
+			        <label>Dirección: </label>
+			        <input class="form-control" type="text" name="direccion" value="<?php if(isset($this->datos)) echo $this->datos['direccion']; ?>" />
+			    </div>
+			</div>
+		</div>	 
+
+		<div class="col-md-4">
+            <div class="">
+			    <div class="form-group">
+			        <label>Tel&eacute;fono: </label>
+			        <input class="form-control" type="text" name="telefono" value="<?php if(isset($this->datos)) echo $this->datos['telefono']; ?>" />
+			    </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-4">
+			<label>Tipo de empleado: </label>
+			<select name="tipoUsuario" id="tipoUsuario" class="form-control" onchange="AgregarAdicionales();">
+				<option value="0" disabled selected>Seleccione...</option>
+		        <option value="1"> Usuario del sistema</option>          
+		        <option value="2"> Conductor </option>
+			</select>
+		</div>
+	</div>
+	
+	<br>
+	<div id="camposAdicionales" class="row"></div>
+
+		
+    
+    <div class="">
+        <button class="btn btn-primary" type="submit" value="Guardar">Guardar</button>
+    </div>
+
+</form>
+
+
+<script>
+	function AgregarAdicionales(){
+	    $("#camposAd").remove();
+
+	    if ($("#tipoUsuario").val() == '1') {
+	        campos = '<div id="camposAd">'+
+	                '    <div class="col-md-4">   '+
+	                '        <div class="">   '+
+	                '            <div class="form-group">   '+
+	                '                <label>Contraseña: </label>   '+
+	                '                <input class="form-control" type="password" name="pass" value="" />   '+
+	                '            </div>   '+
+	                '        </div>   '+
+	                '    </div>   '+
+
+	                '    <div class="col-md-4">   '+
+	                '        <div class="">   '+
+	                '            <div class="form-group">   '+
+	                '                <label>Confirmar: </label>   '+
+	                '                <input class="form-control" type="password" name="confirmar" value="" />   '+
+	                '            </div>   '+
+	                '        </div>   '+
+	                '    </div>   '+
+
+	                '   <div class="col-md-4">   '+
+	                '       <div class="">   '+
+	                '           <div class="form-group">   '+
+	                '               <label>Rol: </label>   '+
+	                '               <select name="rol" id="tipoUsuario" class="form-control" >   '+
+	                '                   <option value="0" disabled selected>Seleccione...</option>   '+
+	                '                   <option value="1"> Administrador </option>   '+
+	                '                   <option value="2"> Coordinador </option>   '+
+	                '                   <option value="3"> Usuario </option>   '+
+	                '               </select>   '+
+	                '           </div>   '+
+	                '       </div>   '+
+	                '   </div>   '+
+	                '</div>';
+	    }else if ($("#tipoUsuario").val() == '2'){
+	         
+	        campos = '<div id="camposAd">'+
+	                  '<div class="col-md-4">   '+
+	                  '      <div class="">   '+
+	                  '          <div class="form-group">   '+
+	                  '              <label>No. Licencia: </label>   '+
+	                  '              <input class="form-control" type="text" name="licencia" value="<?php if(isset($this->datos['licencia'])) echo $this->datos['licencia']; ?>" />   '+
+	                  '          </div>   '+
+	                  '      </div>   '+
+	                  '  </div>   '+
+
+	                  '  <div class="col-md-4">   '+
+	                  '      <div class="">   '+
+	                  '          <div class="form-group">   '+
+	                  '              <label>Expedici&oacute;n: </label>   '+
+	                  '              <input class="form-control" type="date" name="fec_expedicion" value="<?php if(isset($this->datos['fec_expedicion'])) echo $this->datos['fec_expedicion']; ?>" />   '+
+	                  '          </div>   '+
+	                  '      </div>   '+
+	                  '  </div>   '+
+
+	                  ' <div class="col-md-4">   '+
+	                  '     <div class="">   '+
+	                  '         <div class="form-group">   '+
+	                  '             <label>Vencimiento: </label>   '+
+	                  '             <input class="form-control" type="date" name="fec_vencimiento" value="<?php if(isset($this->datos['fec_vencimiento'])) echo $this->datos['fec_vencimiento']; ?>" />   '+
+	                  '         </div>   '+
+	                  '     </div>   '+
+	                  ' </div>' +
+	                  '</div>';
+	    }
+	    
+	    $("#camposAdicionales").append(campos);
+	}
+
+</script>

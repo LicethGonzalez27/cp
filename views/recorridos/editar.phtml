@@ -1,0 +1,75 @@
+<ol class="breadcrumb">
+  <li><a href="<?php echo BASE_URL ?>">Inicio</a></li>
+  <li><a href="<?php echo BASE_URL ?>recorridos">Recorridos</a></li>
+  <li class="active">Editar</li>
+</ol>
+
+<h2>EDITAR RECORRIDO</h2>
+
+<form name="form1" method="post" action="">
+    <input type="hidden" value="1" name="guardar" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Recorrido: </label>
+                    <input class="form-control" type="text" name="recorrido" value="<?php if(isset($this->datos)) echo $this->datos['recorrido']; ?>" placeholder="Origen - Destino vía ..." required />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="">
+                <div class="form-group">
+                    <label>Origen: </label>
+                    <input class="form-control" type="text" name="origen" value="<?php if(isset($this->datos)) echo $this->datos['origen']; ?>" placeholder="Ciudad de origen" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="">
+                <div class="form-group">
+                    <label>Destino: </label>
+                    <input class="form-control" type="text" name="destino" value="<?php if(isset($this->datos)) echo $this->datos['destino']; ?>" placeholder="Ciudad de destino" required />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="">
+                <div class="form-group">
+                    <label>Valor: </label>
+                    <input type="number" class="form-control" name="valor" value="<?php if(isset($this->datos)) echo $this->datos['valor']; ?>" placeholder="$ 1000" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="">
+                <div class="form-group">
+                    <label>Año: </label>
+                    <select class="form-control" name="ano">
+                        <option value="0" disabled selected>Seleccione...</option>
+                        <?php for($i = 2015; $i < 2021; $i++): ?>
+                            <?php if ($this->datos['ano'] == $i): ?>
+                                <option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
+                            <?php else: ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option> 
+                            <?php endif ?> 
+                        <?php endfor; ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="">
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Guardar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br><br>

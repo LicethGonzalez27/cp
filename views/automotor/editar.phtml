@@ -1,0 +1,79 @@
+<ol class="breadcrumb breadcrumb-top">
+  <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i></a></li>
+  <li><a href="<?php echo BASE_URL; ?>automotor">Parque Automotor</a></li>
+  <li class="active">Editar</li>
+</ol>
+
+<h2>Vehículo <?php if(isset($this->datos)) echo $this->datos['numero']; ?></h2>
+
+<form name="form1" method="post" action="">
+    <input type="hidden" value="1" name="guardar" />
+    
+    <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+            <label>N&uacute;mero: </label>
+            <input class="form-control" title="Se necesita un numero" type="text" name="numero" value="<?php if(isset($this->datos)) echo $this->datos['numero']; ?>" required/>
+          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Placa: </label>
+          <input class="form-control" title="Se necesita la placa" type="text" name="placa" value="<?php if(isset($this->datos)) echo $this->datos['placa']; ?>" maxlength="7" required />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Marca: </label>
+            <select class="form-control" name="marca">
+              <?php if ($this->datos['marca'] == 'Chevrolet'): ?>
+                <option value="Chevrolet" selected>Chevrolet </option>
+                <option value="Nissan">Nissan </option>
+                <option value="Otro">Otro </option>
+              <?php elseif ($this->datos['marca'] == 'Nissan'): ?>
+                <option value="Chevrolet">Chevrolet </option>
+                <option value="Nissan" selected>Nissan </option>
+                <option value="Otro">Otro </option>
+              <?php elseif ($this->datos['marca'] == 'Otro'): ?>
+                <option value="Chevrolet">Chevrolet </option>
+                <option value="Nissan">Nissan </option>
+                <option value="Otro" selected>Otro </option>
+              <?php endif ?>
+            </select>
+        </div> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4"><br>
+        <div class="radio">
+          <?php if ($this->datos['clase'] == 'Camioneta'): ?>
+            <label><input type="radio" name="clase" value="Camioneta" checked> Camioneta</label>
+            <label><input type="radio" name="clase" value="Automovil"> Automovil</label>
+            <label><input type="radio" name="clase" value="Campero"> Campero </label>
+          <?php elseif ($this->datos['clase'] == 'Automovil'):?>
+            <label><input type="radio" name="clase" value="Camioneta"> Camioneta</label>
+            <label><input type="radio" name="clase" value="Automovil" checked> Automovil</label>
+            <label><input type="radio" name="clase" value="Campero"> Campero </label>
+          <?php elseif ($this->datos['clase'] == 'Campero'):?>
+            <label><input type="radio" name="clase" value="Camioneta"> Camioneta</label>
+            <label><input type="radio" name="clase" value="Automovil"> Automovil</label>
+            <label><input type="radio" name="clase" value="Campero" checked> Campero </label>
+          <?php endif ?>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Modelo: </label>
+          <input class="form-control" type="year" name="modelo" value="<?php if(isset($this->datos)) echo $this->datos['modelo']; ?>" maxlength="4" required />
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-12"><br>
+      <div class="">
+        <button class="btn btn-primary" type="submit" value="Guardar">Actualizar</button>
+      </div>
+    </div>
+
+</form>

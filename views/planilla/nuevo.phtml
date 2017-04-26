@@ -1,0 +1,282 @@
+<ol class="breadcrumb breadcrumb-top">
+  <li><a href="<?php echo BASE_URL; ?>"><i class="fa fa-home"></i></a></li>
+  <li><a href="<?php echo BASE_URL; ?>planilla">Planillas</a></li>
+  <li class="active">Registro de Planillas</li>
+</ol>
+
+<form name="form2" method="post" action="">
+<input type="hidden" value="1" name="guardar" />
+<input type="hidden" value="<?php if(isset($this->datos)) {echo $this->datos['i'];}else{echo -1;} ?>" name="i" id="i" />
+<input type="hidden" id="contrato" name="contrato" value="<?php if(isset($this->datos)) {echo @$this->datos['contrato'];}else{echo (@$this->contrato['0']['contrato']+1);} ?>" />
+
+<input type="hidden" value="<?php echo $this->consec_transito; ?>" name="consec_transito" id="consec_transito" />
+
+  <div class="col-md-12">
+        <h4>Contrato: <strong><?php if(isset($this->datos)) {echo $this->datos['contrato'];}else{echo (@$this->contrato['0']['contrato']+1);} ?></strong></h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="">
+                <div class="form-group">
+
+                <!-- Datepicker -->
+                <label>Fecha: </label>
+                    <div class="input-group input-daterange" data-date-format="mm/dd/yyyy">
+                    <input type="text" id="fec_inicial" name="fec_inicial" class="form-control text-center" title="Inicio de Contrato" type="date" value="<?php if(isset($this->datos)) echo $this->datos['fec_inicial']; ?>" required placeholder="Desde">
+                                
+                        <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+                                                        
+                    <input type="text" id="fec_final" name="fec_final" class="form-control text-center" title="Final de contrato" type="date" value="<?php if(isset($this->datos)) echo $this->datos['fec_final']; ?>" required placeholder="Hasta">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="">      
+                <div class="form-group">
+                    <label>Convenio: </label>
+                    <select class="form-control" name="convenio" required>
+                        <option value="0" disabled selected>Seleccione...</option>
+                        <option value="1" >Ninguno</option>
+                        <option value="2" >Transarama</option> 
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                <!-- End Datepicker -->
+                <!--    
+                    <input id="fec_inicial" name="fec_inicial" class="form-control" title="Inicio de Contrato" type="date" value="<?php if(isset($this->datos)) echo $this->datos['fec_inicial']; ?>" required/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="">      
+                <div class="form-group">
+                    <label>Fecha Final:</label>
+                    <input id="fec_final" name="fec_final" class="form-control" title="Final de contrato" type="date" value="<?php if(isset($this->datos)) echo $this->datos['fec_final']; ?>" required/>
+                </div>
+            </div>  
+        </div>      
+--> 
+     
+      
+<h4>Datos de Ruta:</h4>
+            
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="">
+                <div class="form-group">
+                <label>Vehiculo No.: </label>                    
+                <select name="automotor" class="select-chosen" data-placeholder="Seleccione..." required>
+                    <?php if (isset($this->datos)): ?>
+                        <option value="0" disabled selected>Seleccione...</option>
+                        <?php for($i = 0; $i < count($this->automotores); $i++): ?>
+                            <?php if ($this->datos['automotor'] == $i): ?>
+                            <option value="<?php echo $this->automotores[$i]['id']; ?>" selected><?php echo $this->automotores[$i]['numero']." - ".$this->automotores[$i]['placa']; ?></option>
+                            <?php else: ?>
+                            <option value="<?php echo $this->automotores[$i]['id']; ?>"><?php echo $this->automotores[$i]['numero']." - ".$this->automotores[$i]['placa']; ?></option>
+                            <?php endif ?>
+                        <?php endfor; ?>
+                        <?php else: ?>
+                            <option value="0" disabled selected>Seleccione...</option>
+                            <?php for($i = 0; $i < count($this->automotores); $i++): ?>
+                                <option value="<?php echo $this->automotores[$i]['id']; ?>"><?php echo $this->automotores[$i]['numero']." - ".$this->automotores[$i]['placa']; ?></option>
+                            <?php endfor; ?>
+                        <?php endif ?> 
+                    </select>
+                </div>
+            </div>
+        </div>
+            
+        <div class="col-md-6 col-sm-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Conductor:</label>
+                    <select name="conductor" class="select-chosen" data-placeholder="Seleccione..." required>
+                        <?php if (isset($this->datos)): ?>
+                            <?php for($i = 0; $i < count($this->conductores); $i++): ?>
+                                <?php if ($this->datos['conductor'] == $i): ?>
+                                    <option value="<?php echo $this->conductores[$i]['id']; ?>" selected><?php echo $this->conductores[$i]['nombres']." ".$this->conductores[$i]['apellidos']; ?></option>
+                                <?php else: ?>
+                                    <option value="<?php echo $this->conductores[$i]['id']; ?>"><?php echo $this->conductores[$i]['nombres']." ".$this->conductores[$i]['apellidos']; ?></option>
+                                <?php endif ?>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            <option value="0" disabled selected>Seleccione...</option>
+                            <?php for($i = 0; $i < count($this->conductores); $i++): ?>
+                                <option value="<?php echo $this->conductores[$i]['id']; ?>"><?php echo $this->conductores[$i]['nombres']." ".$this->conductores[$i]['apellidos']; ?></option>
+                            <?php endfor; ?>
+                        <?php endif ?> 
+                    </select>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Origen: </label>
+                    <select class="form-control" id="origen" name="origen" required>
+                        <option value="0" disabled selected>Seleccione...</option>
+                        <?php for($i = 0; $i < count($this->recorridos); $i++): ?>
+                            <option value="<?php echo $this->recorridos[$i]['origen']; ?>"><?php echo $this->recorridos[$i]['origen']; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Destino:</label>
+                    <select class="form-control" id="destino" name="destino" required>
+                      <option value="0" disabled selected>Seleccione...</option>
+                      <?php for($i = 0; $i < count($this->recorridos); $i++): ?>
+                            <option value="<?php echo $this->recorridos[$i]['destino']; ?>"><?php echo $this->recorridos[$i]['destino']; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div> 
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="">
+                <div class="form-group">
+                    <label>Recorrido:</label>
+                    <select class="form-control" id="recorrido" name="recorrido" required>
+                      <option value="0" disabled selected>Seleccione...</option>
+                      <?php for($i = 0; $i < count($this->recorridos); $i++): ?>
+                            <option value="<?php echo $this->recorridos[$i]['recorrido']; ?>"><?php echo $this->recorridos[$i]['recorrido']; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+<div>
+    <h3> Pasajeros: </h3>
+</div>
+
+    <div class="panel panel-default table-responsive text-center">
+        <div class="panel-heading "><strong> </strong>
+            &nbsp; &nbsp; &nbsp;
+            <div class="row"> 
+                <div class="col-sm-6 form-inline form-group">
+                    <label for="">C.C. Pasajero: &nbsp;</label>
+                    <input class="" title="Cedula de pasajero" type="text" id="buscarPasajero" name="buscarPasajero" value=""/>
+                    <label id="btn_addPax" class="btn btn-primary btn-xs" data-whatever=""> Insertar</label>
+                </div>
+                <div id="resultadoPasajeros" class="col-sm-5">
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="datosPasajeros" class="table table-bordered">
+                <thead>
+                    <th>No.</th>
+                    <th>CEDULA</th>
+                    <th>NOMBRES</th>
+                    <th>APELLIDOS</th>
+                    <!--<th>DIRECCION</th>
+                    <th>TELEFONO</th>-->
+                </thead>
+
+                <?php if (isset($this->datos)): ?>
+                    <?php for($i = 1; $i <= $this->datos['i']; $i++): ?>
+                        <tr>
+                            <td><?php echo $i; ?>
+                                <input type="hidden" name="pax<?php echo $i;?>" value="<?php if(isset($this->datos)) echo $this->pax[$i-1]['id']; ?>"></td>
+                            </td>
+                            <td><?php if(isset($this->datos)) echo $this->pax[$i-1]['cedula']; ?></td>
+                            <td><?php if(isset($this->datos)) echo $this->pax[$i-1]['nombres']; ?></td>
+                            <td><?php if(isset($this->datos)) echo $this->pax[$i-1]['apellidos']; ?></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    <?php endfor; ?>
+                <?php endif ?>
+                <!--<tr>
+                    <td>1</td>
+                    <td><input class="form-control" title="Cedula de pasajero" type="text" name="pax0" value="<?php if(isset($this->datos)) echo $this->datos['pax0']; ?>"/>
+                        </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>-->
+
+            </table>
+        </div>
+        <div class="panel-footer">
+            <label for=""><a href="#" onclick="RemoverUltimo();">Remover último</a></label>
+        </div>
+    </div>
+   
+<div class="text-center">
+    <button class="btn btn-primary btn-lg" type="submit" value="Guardar">Guardar</button>
+</div>
+</form>
+
+<br><br>
+
+<!-- Modal Pasajero -->
+<div id="modal-nuevo" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form action="" method="post" class="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Agregar Pasajero</h3>
+                </div>
+
+
+            <div class="modal-body form-horizontal form-bordered">
+                <div class="form-group ">
+                    <label class="col-md-3 control-label" >C&eacute;dula:</label>
+                        <div class="col-md-9">
+                         <input class="form-control" type="text" id="cedula" name="cedula" value="<?php if(isset($this->datos)) echo $this->datos['cedula']; ?>" required />
+                        </div>
+                
+                    <label class="col-md-3 control-label" ">Nombres:</label>
+                        <div class="col-md-9">
+                        <input class="form-control" type="text" name="nombres" value="<?php if(isset($this->datos)) echo $this->datos['nombres']; ?>" required />
+                        </div>
+
+                     <label class="col-md-3 control-label" ">Apellidos:</label>
+                        <div class="col-md-9">
+                        <input class="form-control" type="text" name="apellidos" value="<?php if(isset($this->datos)) echo $this->datos['apellidos']; ?>" required />
+                        </div> 
+
+                    <label class="col-md-3 control-label" ">Direcci&oacute;n:</label>
+                        <div class="col-md-9">
+                         <input class="form-control" type="text" name="direccion" value="<?php if(isset($this->datos)) echo $this->datos['direccion']; ?>"  />
+                        </div> 
+
+                    <label class="col-md-3 control-label" ">Tel&eacute;fono:</label>
+                        <div class="col-md-9">
+                         <input class="form-control" type="text" name="telefono" value="<?php if(isset($this->datos)) echo $this->datos['telefono']; ?>"  />
+                        </div>
+
+                </div>
+            </div>
+                      
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btn_nuevo_pasajero" type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Fin Modal Pasajero -->

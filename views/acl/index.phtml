@@ -1,0 +1,190 @@
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+    	<div class="block">
+            <!-- Block with Options Title -->
+            <div class="block-title">
+                <div class="block-options pull-right">
+                    <div class="btn-group btn-group-sm">
+                        <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Options"><span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                            <li>
+                                <a href="#modal-permiso" data-toggle="modal" ><i class="gi gi-cloud pull-right"></i>Nuevo proceso</a>
+                                <a href="javascript:void(0)"><i class="gi gi-airplane pull-right"></i>Another Action</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:void(0)"><i class="fa fa-wrench fa-fw pull-right"></i>Separated Action</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="<?php echo BASE_URL; ?>acl/permisos"><h2><i class="fa fa-lock"></i> <strong>Permisos</strong></h2></a>
+            </div>
+            <!-- END Block with Options Title -->
+
+            <div class="row">
+				<div class="col-md-3">
+					<!-- Nav tabs -->
+					<ul id="roles" class="nav nav-pills nav-stacked" role="tablist">
+						<?php foreach ($this->roles as $rol): ?>
+					    <li role="presentation" class="<?php if($rol['id']=='1'){echo 'active';} ?>"><a href="#<?php echo $rol['rol']; ?>" aria-controls="<?php echo $rol['rol']; ?>" role="tab" data-toggle="tab"><?php echo $rol['rol']; ?></a></li>
+					    <?php endforeach ?>
+					</ul>
+					<!-- Roles Footer -->
+		            <div class="block-footer">
+		                <div class="block-options pull-right">
+		                    <a href="#modal-rol" class="btn btn-alt btn-sm btn-default" data-toggle="modal" data-toggle="tooltip" title="Crear rol"><i class="fa fa-plus"></i></a>
+		                    <div class="btn-group btn-group-sm">
+		                        <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Options"><span class="caret"></span></a>
+		                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+		                            <li>
+		                                <a href="javascript:void(0)"><i class="gi gi-cloud pull-right"></i>Simple Action</a>
+		                                <a href="javascript:void(0)"><i class="gi gi-airplane pull-right"></i>Another Action</a>
+		                            </li>
+		                            <li class="divider"></li>
+		                            <li>
+		                                <a href="javascript:void(0)"><i class="fa fa-wrench fa-fw pull-right"></i>Separated Action</a>
+		                            </li>
+		                        </ul>
+		                    </div>
+		                </div>
+		            </div>
+	                <!-- END Roles Footer -->
+				</div>
+				<div class="col-md-9">
+					<!-- Tab panes -->
+					<div id="tab_permisos" class="tab-content">
+						<?php foreach ($this->roles as $rol): ?>
+					    	<div role="tabpanel" class="tab-pane <?php if($rol['id']=='1'){echo 'active';} ?>" id="<?php echo $rol['rol']; ?>">
+					    	<!-- Inicio contenido tab -->
+					    		<div class="block">
+					                <!-- Permisos Title -->
+						            <div class="block-title">
+						                <div class="block-options pull-right">
+						                    <a href="<?php echo BASE_URL.'acl/permisos_rol/'. $rol['id']; ?>" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Editar permisos"><i class="fa fa-pencil"></i></a>
+						                    <div class="btn-group btn-group-sm">
+						                        <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="Options"><span class="caret"></span></a>
+						                        <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+						                            <li>
+						                                <a href="javascript:void(0)"><i class="gi gi-cloud pull-right"></i>Simple Action</a>
+						                                <a href="javascript:void(0)"><i class="gi gi-airplane pull-right"></i>Another Action</a>
+						                            </li>
+						                            <li class="divider"></li>
+						                            <li>
+						                                <a href="javascript:void(0)"><i class="fa fa-wrench fa-fw pull-right"></i>Separated Action</a>
+						                            </li>
+						                        </ul>
+						                    </div>
+						                </div>
+						                <h2><strong>Permisos</strong> de <?php echo $rol['rol']; ?></h2>
+						            </div>
+					                <!-- END Permisos Title -->
+
+					                <div class="table-responsive">
+					                    <table class="table table-bordered table-striped table-vcenter">
+					                        <thead>
+					                            <tr>
+					                                <th class="text-center">Modulo - Permiso</th>
+					                                <th class="text-center"><small>Agregar</small></th>
+					                                <th class="text-center"><small>Consultar</small></th>
+					                                <th class="text-center"><small>Modificar</small></th>
+					                                <th class="text-center"><small>Eliminar</small></th>
+					                                <th class="text-center"><small>Imprimir</small></th>
+					                                <th class="text-center"><small>Exportar</small></th>
+					                            </tr>
+					                        </thead>
+					                        <tbody>
+					                            <?php foreach ($this->permisos_roles[$rol['id']] as $pr): ?>
+					                                <tr>
+					                                    <td class="text-left"><?php echo $pr['modulo'].' - '.$pr['permiso']; ?></td>
+					                                    <td class="text-center"><?php if ($pr['agregar'] == '1') {echo '<i class="fa fa-check text-success">';}else{ echo '<i class="fa fa-times text-danger"></i>';} ?></td>
+					                                    <td class="text-center"><?php if ($pr['consultar'] == '1') {echo '<i class="fa fa-check text-success">';}else{ echo '<i class="fa fa-times text-danger"></i>';} ?> </td>
+					                                    <td class="text-center"><?php if ($pr['modificar'] == '1') {echo '<i class="fa fa-check text-success">';}else{ echo '<i class="fa fa-times text-danger"></i>';} ?> </td>
+					                                    <td class="text-center"><?php if ($pr['eliminar'] == '1') {echo '<i class="fa fa-check text-success">';}else{ echo '<i class="fa fa-times text-danger"></i>';} ?> </td>
+					                                    <td class="text-center"><?php if ($pr['imprimir'] == '1') {echo '<i class="fa fa-check text-success">';}else{ echo '<i class="fa fa-times text-danger"></i>';} ?> </td>
+					                                    <td class="text-center"><?php if ($pr['exportar'] == '1') {echo '<i class="fa fa-check text-success">';}else{ echo '<i class="fa fa-times text-danger"></i>';} ?> </td>
+					                                </tr>
+					                            <?php endforeach ?>
+					                        </tbody>
+					                    </table>
+					                </div>
+						        </div>
+						    <!-- Inicio contenido tab -->
+					    	</div>
+					    <?php endforeach ?>
+					</div>
+				</div>
+			
+			</div>
+    	</div>
+    </div>
+</div>
+
+
+<!-- Rol Modal -->
+<div id="modal-rol" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form action="" method="post" class="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Nuevo Rol</h3>
+                </div>
+                <div class="modal-body form-horizontal form-bordered">
+                    <div class="form-group ">
+                        <label class="col-md-3 control-label" for="rol">Rol</label>
+                        <div class="col-md-9">
+                            <input type="text" id="rol" name="rol" class="form-control" placeholder="Nombre de rol">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btn_nuevo_rol" type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END Rol Modal -->
+
+<!-- Nuevo Permiso Modal -->
+<div id="modal-permiso" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form action="" method="post" class="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Nuevo Proceso</h3>
+                </div>
+                <div class="modal-body form-horizontal form-bordered">
+                    <div class="form-group ">
+                   		<label class="col-md-3 control-label" for="modulo">Módulo</label>
+                        <div class="col-md-9">
+                            <select id="modulo" name="modulo" class="form-control" size="1">
+                                <option value="0" disabled selected>Seleccione un módulo</option>
+                                <?php foreach ($this->modulos as $mod): ?>
+                                	<option value="<?php echo $mod['id']; ?>"><?php echo $mod['modulo']; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <label class="col-md-3 control-label" for="rol">Proceso</label>
+                        <div class="col-md-9">
+                            <input type="text" id="permiso" name="permiso" class="form-control" placeholder="Nombre de proceso">
+                        </div>
+                        <label class="col-md-3 control-label" for="rol">Clave</label>
+                        <div class="col-md-6">
+                            <input type="text" id="key" name="key" class="form-control" placeholder="key">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btn_nuevo_permiso" type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END Nuevo Permiso Modal -->

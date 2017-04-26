@@ -1,0 +1,42 @@
+<ol class="breadcrumb">
+  <li><a href="<?php echo BASE_URL ?>">Inicio</a></li>
+  <li class="active">Recorridos</li>
+</ol>
+
+<h2>RECORRIDOS</h2>
+<br>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><strong>Recorridos </strong>
+		&nbsp; &nbsp; &nbsp; 
+		<a class="btn btn-primary btn-xs" href="<?php echo BASE_URL; ?>recorridos/nuevo">Agregar Recorrido</a>
+	</div>
+    <div class="table-responsive">
+        <table class="table table-bordered center">
+        	<thead>	
+        			<th>No.</th>
+        			<th>RECORRIDO</th>
+        	        <th>ORIGEN</th>
+        	        <th>DESTINO</th>
+        	        <th>VALOR</th>
+        	        <th>AÑO</th>
+                    <th></th>
+        	</thead>
+
+        	<?php for($i = 0; $i < count($this->recorridos); $i++): ?>
+        	
+            <tr>       
+            	<td><?php echo ($i+1); ?></td>
+            	<td><?php echo $this->recorridos[$i]['recorrido']; ?></td>
+                <td><?php echo $this->recorridos[$i]['origen']; ?></td>
+                <td><?php echo $this->recorridos[$i]['destino']; ?></td>
+                <td>$ <?php echo $this->recorridos[$i]['valor']; ?></td>
+                <td><?php echo $this->recorridos[$i]['ano']; ?></td>
+                
+                <td><a href="<?php echo BASE_URL.'recorridos/editar/'.$this->recorridos[$i]['id']; ?>">Editar</a></td>
+            </tr>
+            
+            <?php endfor;?>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<ol class="breadcrumb">
+  <li><a href="<?php echo BASE_URL ?>">Inicio</a></li>
+  <li class="active">Seguros</li>
+</ol>
+
+<h2>SEGUROS</h2>
+<br>
+<div class="row">
+	<div class="col-md-4">
+   		<p>Aquí podrá gestionar el Seguro Obligatorio de Accidentes de Tránsito SOAT de todo el parque automotor.</p>
+	</div>
+
+	<div class="col-md-8">
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+			<div class="panel-heading">ASEGURADORAS &nbsp; &nbsp; &nbsp; 
+				<a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Agregar Aseguradora	</a>
+			</div>
+		  
+		  	<div class="collapse" id="collapseExample">
+				<div class="well">
+				  	<div class="panel-body">
+					    <form class=" form-inline" name="form1" method="post" action="">
+			    			<input type="hidden" value="1" name="guardar" />
+							<div class=" form-group">
+				                <label class="sr-only">Nombre: </label>
+				                <input class="form-control" type="text" name="nombre" value="<?php if(isset($this->datos)) echo $this->datos['nombre']; ?>" placeholder="Nombre de Aseguradora" required />
+				            </div>
+				            <div class=" form-group">
+				                <label class="sr-only">Teléfono: </label>
+				                <input class="form-control" type="text" name="telefono" value="<?php if(isset($this->datos)) echo $this->datos['telefono']; ?>" placeholder="Teléfono - " required />
+				            </div>
+				            <button class="btn btn-primary btn-sm" type="submit" value="Guardar">Agregar</button>
+				        </form>
+					</div>
+				</div>
+		  	</div>
+		  <!-- Table -->
+		  <table class="table text-center">
+
+		    	<?php for($i = 0; $i < count($this->aseguradoras); $i++): ?>
+		        
+		        <tr>
+		            <td><?php echo $this->aseguradoras[$i]['nombre']; ?></td>
+		            <td><?php echo $this->aseguradoras[$i]['telefonos']; ?></td>
+		        </tr>
+		        
+		        <?php endfor;?>
+		    </table>
+		</div>
+
+	</div>
+</div>
+<br><br>
+<div class="row ">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">SOAT Registrados &nbsp; &nbsp; &nbsp; 
+				<a class="btn btn-primary btn-xs" href="<?php echo BASE_URL; ?>seguros/soat">Agregar Soat</a>
+			</div>
+			<div class="table-responsive">
+			    <table class="table table-bordered center">
+			    	<thead>	
+			    			<th>No.</th>
+			    	        <th>AUTOMOTOR</th>
+			    	        <th>POLIZA</th>
+			    	        <th>FEC. EXPEDICI&Oacute;N</th>
+			    	        <th>FEC. VENCIMIENTO</th>
+			    	        <th>ASEGURADORA</th>
+			                <th></th>
+			    	</thead>
+
+			    	<?php for($i = 0; $i < count($this->soat); $i++): ?>
+			    	<?php $diferencia = date_diff(date_create(date("Y-m-d")), date_create($this->soat[$i]['fec_vencimiento']))->format('%R%a'); ?>
+			        <?php if ($diferencia <= -15): ?>
+			        	<tr class="active">
+			        <?php elseif ($diferencia <= 30): ?>
+			        	<tr class="danger">
+			        <?php else: ?>
+						 <tr class="success">
+			        <?php endif ?>
+			       
+			        	<td><?php echo ($i+1); ?></td>
+			            <td><?php echo $this->soat[$i]['numero']." - ".$this->soat[$i]['placa']; ?></td>
+			            <td><?php echo $this->soat[$i]['poliza']; ?></td>
+			            <td><?php echo $this->soat[$i]['fec_expedicion']; ?></td>
+			            <td><?php echo $this->soat[$i]['fec_vencimiento']; ?></td>
+			            <td><?php echo $this->soat[$i]['aseguradora']; ?></td>
+			            <td><a href="<?php echo BASE_URL.'seguros/editar/'.$this->soat[$i]['id']; ?>">Editar</a></td>
+			        </tr>
+			        
+			        <?php endfor;?>
+			    </table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br><br>
+
+
+
